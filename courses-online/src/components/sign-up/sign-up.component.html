@@ -1,0 +1,91 @@
+
+
+<mat-card class="sign-up-card">
+  <mat-card-content>
+    <div class="sign-up-container">
+      <mat-card-header>
+        <div class="avatar-container">
+          <mat-icon class="avatar-icon">lock</mat-icon>
+        </div>
+        <h2>Sign Up</h2>
+      </mat-card-header>
+
+      <form [formGroup]="signUpForm" (ngSubmit)="SaveUser()">
+        <!-- אימייל -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            formControlName="email"
+            type="email"
+            autocomplete="email"
+          />
+          <mat-icon matPrefix>person</mat-icon>
+          @if( signUpForm.get('email')?.invalid &&
+          signUpForm.get('email')?.touched){
+          <mat-error> email is not match pattern</mat-error>}
+        </mat-form-field>
+
+        <!-- סיסמא -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+            autocomplete="current-password"
+          />
+          <mat-icon matPrefix>lock</mat-icon>
+          @if(signUpForm.get('password')?.invalid &&
+          signUpForm.get('password')?.touched){
+          <mat-error
+            >password must include at least one digit and one letter
+            ⚠.</mat-error
+          >
+          }
+        </mat-form-field>
+        <!-- שם משתמש -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Username</mat-label>
+          <input matInput id="name" formControlName="name" />
+          @if(signUpForm.get('name')?.invalid &&
+          signUpForm.get('name')?.touched){
+          <mat-error> Username is required. </mat-error>}
+        </mat-form-field>
+
+        <!-- תפקיד -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Role</mat-label>
+          <mat-select id="role" formControlName="role">
+            <mat-option value="admin">Admin</mat-option>
+            <mat-option value="student">Student</mat-option>
+            <mat-option value="teacher">Teacher</mat-option>
+          </mat-select>
+          @if(signUpForm.get('role')?.invalid &&
+          signUpForm.get('role')?.touched){
+          <mat-error> >Role is required. > </mat-error>
+          }
+        </mat-form-field>
+
+        <!-- זכור אותי -->
+        <mat-checkbox >Remember me</mat-checkbox>
+
+        <!-- כפתור התחברות -->
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          class="full-width"
+          [disabled]="signUpForm.invalid"
+        >
+          Sign Up
+        </button>
+
+        <!-- קישור להרשמה -->
+        <div class="register-link">
+          <a routerLink="/SignIn">Do you have an account already? Sign In</a>
+        </div>
+      </form>
+    </div>
+  </mat-card-content>
+</mat-card>

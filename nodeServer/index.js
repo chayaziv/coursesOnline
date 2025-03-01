@@ -8,8 +8,10 @@ const courseRoutes = require("./routes/courses")(db);
 const lessonRoutes = require("./routes/lessons")(db);
 
 const app = express();
+const cors = require('cors'); 
 
 // Middleware
+app.use(cors());
 app.use(bodyParser.json());
 
 // Initialize database schema
@@ -50,6 +52,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/courses/:courseId/lessons", lessonRoutes);
+
+
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");

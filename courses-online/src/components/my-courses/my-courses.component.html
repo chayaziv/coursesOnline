@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="courses-list">
+    @for(c of myCourses; track c.id) {
+
+    <app-course [course]="c">
+      <div ngProjectAs="actions">
+        <button mat-raised-button color="warn" (click)="UnEnroll(c.id!)">
+          UnEntroll
+        </button>
+      </div> </app-course
+    >} @empty {
+    <div>your courses not found</div>
+    }
+  </div>
+</div>

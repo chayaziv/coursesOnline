@@ -1,0 +1,40 @@
+<div class="overlay">
+    <div class="form-container">
+      <h2>{{ isEdit ? "Edit Course" : "Add Course" }}</h2>
+      <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+      
+          <mat-form-field appearance="fill">
+            <mat-label>Course Title</mat-label>
+            <input matInput formControlName="title" />
+            @if(courseForm.get('title')?.invalid
+            &&courseForm.get('title')?.touched){
+            <mat-error> Title is required. </mat-error>
+            }
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Course Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+            @if(courseForm.get('description')?.invalid
+            &&courseForm.get('description')?.touched){
+            <mat-error> description is required. </mat-error>
+            }
+          </mat-form-field>
+      
+        <div class="actions">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="courseForm.invalid"
+          >
+            {{ isEdit ? "Save Changes" : "Add Course" }}
+          </button>
+          <button mat-raised-button color="warn" (click)="onCancel()">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

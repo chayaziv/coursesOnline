@@ -1,0 +1,46 @@
+<mat-toolbar color="primary">
+  <span class="title">Courses Online</span>
+  <span class="spacer"></span>
+
+  <!-- תפריט עם כל האיקונים -->
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/home">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+    @if(!isAuth){
+    <button mat-menu-item routerLink="/signIn">
+      <mat-icon>login</mat-icon>
+      <span>Sign In</span>
+    </button>
+
+    <button mat-menu-item routerLink="/signUp">
+      <mat-icon>person_add</mat-icon>
+      <span>Sign Up</span>
+    </button>
+    } @else if (isAuth) {
+    <button mat-menu-item routerLink="/courses">
+      <mat-icon>school</mat-icon>
+      <span>Courses</span>
+    </button>
+
+    <button mat-menu-item routerLink="/mycourses">
+      <mat-icon>playlist_add_check</mat-icon>
+      <span>My Courses</span>
+    </button>
+
+    <button mat-menu-item routerLink="/admin">
+      <mat-icon>admin_panel_settings</mat-icon>
+      <span>Admin</span>
+    </button>
+
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>power_settings_new</mat-icon>
+      <span>Logout</span></button
+    >}
+  </mat-menu>
+</mat-toolbar>
