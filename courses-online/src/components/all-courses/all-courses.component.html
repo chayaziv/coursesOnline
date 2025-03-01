@@ -1,6 +1,8 @@
 <div class="container">
   <div class="courses-list">
-    <button (click)="AddCourse()">add course</button>
+    
+    <button mat-raised-button color="primary" (click)="AddCourse()">add course</button>
+
     @for(c of courses; track c.id) {
 
     <app-course [course]="c">
@@ -9,6 +11,7 @@
         <button mat-raised-button color="warn" (click)="DeleteCourse(c.id!)">
           <mat-icon>delete</mat-icon>
         </button>
+       
 
         <button mat-raised-button color="accent" (click)="EditCourse(c)">
           <mat-icon>edit</mat-icon>

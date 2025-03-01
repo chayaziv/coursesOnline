@@ -11,6 +11,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-sign-in',
   imports: [MatFormFieldModule,MatInputModule,MatButtonModule, ReactiveFormsModule,MatCardModule,MatCheckboxModule,MatToolbarModule,MatIconModule],
@@ -23,7 +25,7 @@ export class SignInComponent  {
 
   signInForm: FormGroup;
 
-  constructor(private fb: FormBuilder,private authService: AuthService) {
+  constructor(private fb: FormBuilder,private authService: AuthService,public router: Router) {
 
     this.signInForm = this.fb.group({
       password: ['', [Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d).+$/)]],
@@ -35,6 +37,7 @@ export class SignInComponent  {
         const user: SignInUser = this.signInForm?.value as SignInUser;
         console.log(user);
        this.authService.SignIn(user);
+        // this.router.navigate(['/home']);
        
       
     }

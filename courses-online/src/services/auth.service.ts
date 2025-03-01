@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { SignInUser } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,10 @@ export class AuthService {
   private roleSubject = new BehaviorSubject<string>('');
   public role$ = this.roleSubject.asObservable();
 
-  constructor(private http: HttpClient) {}
+  private userNameSubject = new BehaviorSubject<string>('Guest');
+  public userName$ = this.userNameSubject.asObservable();
+
+  constructor(private http: HttpClient,private router: Router) {}
 
   // התחברות
   SignIn(user: SignInUser) {
@@ -29,6 +33,8 @@ export class AuthService {
         this.userIdSubject.next(res.userId);
         this.roleSubject.next(res.role);
         this.isAuthSubject.next(true);
+        this.userNameSubject.next(res.userName);
+        this.router.navigate(['/home']);
       },
       (error) => {
         console.error('Error:', error.message);
@@ -49,6 +55,8 @@ export class AuthService {
         this.userIdSubject.next(res.userId);
         this.roleSubject.next(res.role);
         this.isAuthSubject.next(true);
+        this.userNameSubject.next(res.userName);
+        this.router.navigate(['/home']);
       },
       (error) => {
         console.error('Error:', error.message);
@@ -63,7 +71,7 @@ export class AuthService {
     this.userIdSubject.next(null);
     this.isAuthSubject.next(false);
     this.roleSubject.next('');
-
+    this.userNameSubject.next('Guest');
   }
   // פונקציה לקבלת ה־token
   getToken(): string | null {

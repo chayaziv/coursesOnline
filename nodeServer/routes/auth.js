@@ -19,14 +19,13 @@ module.exports = (db) => {
         const token = jwt.sign({ userId: userId, role: role }, "secret", {
           expiresIn: "1h",
         });
-        res
-          .status(200)
-          .json({
-            token,
-            userId,
-            role,
-            message: "User registered successfully",
-          });
+        res.status(200).json({
+          token,
+          userId,
+          role,
+          userName: name,
+          message: "User registered successfully",
+        });
       });
     } catch (err) {
       res.status(500).json({ message: "Error registering user" });
@@ -48,14 +47,13 @@ module.exports = (db) => {
         const token = jwt.sign({ userId: user.id, role: user.role }, "secret", {
           expiresIn: "1h",
         });
-        res
-          .status(200)
-          .json({
-            token,
-            userId: user.id,
-            role: user.role,
-            message: "Logged in successfully",
-          });
+        res.status(200).json({
+          token,
+          userId: user.id,
+          role: user.role,
+          userName: user.name,
+          message: "Logged in successfully",
+        });
       });
     } catch (err) {
       res.status(500).json({ message: "Error logging in" });

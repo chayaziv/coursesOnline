@@ -1,141 +1,160 @@
+<div class="container">
+  <!-- Introduction Section -->
+  <section class="intro">
+    <mat-card class="intro-card">
+      <mat-card-content>
+        @if(userName!=="Guest") {
+        <h1> {{ userName }},</h1>
+        } 
+        <h2>Welcome to Courses Online</h2>
+       
 
-  <div class="container">
-    <!-- Introduction Section -->
-    <section class="intro">
-      <mat-card class="intro-card">
+        <p>
+          At Courses Online, we provide a platform for learning various skills
+          and knowledge through online courses. Whether you are looking to
+          advance your career, explore new interests, or just learn something
+          new, we offer courses across a variety of topics.
+        </p>
+        <p>
+          Our goal is to make learning accessible, affordable, and enjoyable for
+          everyone, no matter where you are.
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <h2>Why Choose Us?</h2>
+    <div class="feature-cards">
+      <mat-card class="feature-card">
+        <mat-card-header>
+          <mat-icon mat-card-avatar>school</mat-icon>
+          <mat-card-title>Expert Instructors</mat-card-title>
+        </mat-card-header>
         <mat-card-content>
-          <h2>Welcome to Courses Online</h2>
           <p>
-            At Courses Online, we provide a platform for learning various skills and knowledge through online courses. Whether you are looking to advance your career, explore new interests, or just learn something new, we offer courses across a variety of topics.
-          </p>
-          <p>
-            Our goal is to make learning accessible, affordable, and enjoyable for everyone, no matter where you are.
+            Learn from industry experts with years of experience. Our
+            instructors are passionate about teaching and share their knowledge
+            with you.
           </p>
         </mat-card-content>
       </mat-card>
-    </section>
-  
-    <!-- Features Section -->
-    <section class="features">
-      <h2>Why Choose Us?</h2>
-      <div class="feature-cards">
-        <mat-card class="feature-card">
-          <mat-card-header>
-            <mat-icon mat-card-avatar>school</mat-icon>
-            <mat-card-title>Expert Instructors</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              Learn from industry experts with years of experience. Our instructors are passionate about teaching and share their knowledge with you.
-            </p>
-          </mat-card-content>
-        </mat-card>
-  
-        <mat-card class="feature-card">
-          <mat-card-header>
-            <mat-icon mat-card-avatar>access_alarm</mat-icon>
-            <mat-card-title>Flexible Learning</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              Learn at your own pace, at any time, from anywhere. Our courses are designed to fit around your schedule.
-            </p>
-          </mat-card-content>
-        </mat-card>
-  
-        <mat-card class="feature-card">
-          <mat-card-header>
-            <mat-icon mat-card-avatar>verified</mat-icon>
-            <mat-card-title>Certification</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              Upon completing a course, you will receive a certification that you can add to your resume and showcase your new skills.
-            </p>
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </section>
-  
-    <!-- Popular Courses Section -->
-    <section class="popular-courses">
-      <h2>Popular Courses</h2>
-      <div class="course-list">
-        <mat-card class="course-card">
-          <mat-card-header>
-            <mat-card-title>Web Development</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              Learn to build modern websites with HTML, CSS, and JavaScript. No prior experience required!
-            </p>
-            <button mat-raised-button color="primary">Enroll Now</button>
-          </mat-card-content>
-        </mat-card>
-  
-        <mat-card class="course-card">
-          <mat-card-header>
-            <mat-card-title>Data Science</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              Dive into data analysis, machine learning, and artificial intelligence with this beginner-to-advanced course.
-            </p>
-            <button mat-raised-button color="primary">Enroll Now</button>
-          </mat-card-content>
-        </mat-card>
-  
-        <mat-card class="course-card">
-          <mat-card-header>
-            <mat-card-title>Digital Marketing</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              Learn the fundamentals of digital marketing and how to grow a business online.
-            </p>
-            <button mat-raised-button color="primary">Enroll Now</button>
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </section>
-  
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-      <h2>What Our Students Say</h2>
-      <div class="testimonial-cards">
-        <mat-card class="testimonial-card">
-          <mat-card-header>
-            <mat-card-title>John Doe</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              "This platform helped me land my dream job in tech! The courses were easy to follow and packed with useful information."
-            </p>
-          </mat-card-content>
-        </mat-card>
-  
-        <mat-card class="testimonial-card">
-          <mat-card-header>
-            <mat-card-title>Jane Smith</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              "The data science course was amazing! I learned so much and now I’m working as a data analyst."
-            </p>
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </section>
-  
-    <!-- Call to Action Section -->
-    <section class="cta">
-      <mat-card class="cta-card">
+
+      <mat-card class="feature-card">
+        <mat-card-header>
+          <mat-icon mat-card-avatar>access_alarm</mat-icon>
+          <mat-card-title>Flexible Learning</mat-card-title>
+        </mat-card-header>
         <mat-card-content>
-          <h2>Ready to Start Your Learning Journey?</h2>
-          <p>Sign up today and start learning the skills that will transform your career and life.</p>
-          <button mat-raised-button color="accent">Get Started</button>
+          <p>
+            Learn at your own pace, at any time, from anywhere. Our courses are
+            designed to fit around your schedule.
+          </p>
         </mat-card-content>
       </mat-card>
-    </section>
-  </div>
-  
+
+      <mat-card class="feature-card">
+        <mat-card-header>
+          <mat-icon mat-card-avatar>verified</mat-icon>
+          <mat-card-title>Certification</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            Upon completing a course, you will receive a certification that you
+            can add to your resume and showcase your new skills.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Popular Courses Section -->
+  <section class="popular-courses">
+    <h2>Popular Courses</h2>
+    <div class="course-list">
+      <mat-card class="course-card">
+        <mat-card-header>
+          <mat-card-title>Web Development</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            Learn to build modern websites with HTML, CSS, and JavaScript. No
+            prior experience required!
+          </p>
+          <button mat-raised-button color="primary">Enroll Now</button>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="course-card">
+        <mat-card-header>
+          <mat-card-title>Data Science</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            Dive into data analysis, machine learning, and artificial
+            intelligence with this beginner-to-advanced course.
+          </p>
+          <button mat-raised-button color="primary">Enroll Now</button>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="course-card">
+        <mat-card-header>
+          <mat-card-title>Digital Marketing</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            Learn the fundamentals of digital marketing and how to grow a
+            business online.
+          </p>
+          <button mat-raised-button color="primary">Enroll Now</button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <h2>What Our Students Say</h2>
+    <div class="testimonial-cards">
+      <mat-card class="testimonial-card">
+        <mat-card-header>
+          <mat-card-title>John Doe</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            "This platform helped me land my dream job in tech! The courses were
+            easy to follow and packed with useful information."
+          </p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="testimonial-card">
+        <mat-card-header>
+          <mat-card-title>Jane Smith</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            "The data science course was amazing! I learned so much and now I’m
+            working as a data analyst."
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="cta">
+    <mat-card class="cta-card">
+      <mat-card-content>
+        <h2>Ready to Start Your Learning Journey?</h2>
+        <p>
+          Sign up today and start learning the skills that will transform your
+          career and life.
+        </p>
+        <button mat-raised-button color="accent">Get Started</button>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</div>
