@@ -16,6 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { AuthService } from '../../services/auth.service';
 import { Router, RouterModule } from '@angular/router';
+import { ButtonStyleDirective } from '../../directives/button-style.directive';
 
 @Component({
   selector: 'app-sign-in',
@@ -29,9 +30,9 @@ import { Router, RouterModule } from '@angular/router';
     MatToolbarModule,
     MatIconModule,
     RouterModule,
+ButtonStyleDirective
 
 
-    
   ],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.css',

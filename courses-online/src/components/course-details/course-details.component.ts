@@ -11,6 +11,7 @@ import { Course } from '../../models/course.model';
 import { CoursesService } from '../../services/courses.service';
 import { AuthService } from '../../services/auth.service';
 import { LessonFormComponent } from '../form-lesson/form-lesson.component';
+import { ButtonStyleDirective } from '../../directives/button-style.directive';
 
 @Component({
   selector: 'app-course-details',
@@ -20,7 +21,7 @@ import { LessonFormComponent } from '../form-lesson/form-lesson.component';
     MatIconModule,
     MatButtonModule,
     CommonModule,
-    LessonFormComponent,
+    LessonFormComponent,ButtonStyleDirective
   ],
   templateUrl: './course-details.component.html',
   styleUrl: './course-details.component.css',

@@ -19,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { AuthService } from '../../services/auth.service';
 import { Router, RouterModule } from '@angular/router';
+import { ButtonStyleDirective } from '../../directives/button-style.directive';
 
 @Component({
   selector: 'app-sign-up',
@@ -32,7 +33,7 @@ import { Router, RouterModule } from '@angular/router';
     MatCheckboxModule,
     MatToolbarModule,
     MatIconModule,
-    RouterModule,
+    RouterModule,ButtonStyleDirective
   ],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css',

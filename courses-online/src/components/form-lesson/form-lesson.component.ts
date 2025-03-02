@@ -23,6 +23,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { ButtonStyleDirective } from '../../directives/button-style.directive';
 
 @Component({
   selector: 'app-lesson-form',
@@ -31,7 +32,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule,ButtonStyleDirective
   ],
   templateUrl: './form-lesson.component.html',
   styleUrls: ['./form-lesson.component.css'],

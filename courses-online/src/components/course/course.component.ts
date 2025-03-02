@@ -16,10 +16,11 @@ import { Router } from '@angular/router';
 import { MyCoursesService } from '../../services/my-courses.service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { ButtonStyleDirective } from '../../directives/button-style.directive';
 
 @Component({
   selector: 'app-course',
-  imports: [MatCardModule, MatButtonModule, MatIconModule, CommonModule],
+  imports: [MatCardModule, MatButtonModule, MatIconModule, CommonModule,ButtonStyleDirective],
   templateUrl: './course.component.html',
   styleUrl: './course.component.css',
 })

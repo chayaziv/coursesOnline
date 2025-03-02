@@ -10,6 +10,7 @@ import { CoursesService } from '../../services/courses.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { ButtonStyleDirective } from '../../directives/button-style.directive';
 
 @Component({
   selector: 'app-course-form',
@@ -17,7 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule,ButtonStyleDirective
   ],
   templateUrl: './course-form.component.html',
   styleUrl: './course-form.component.css',

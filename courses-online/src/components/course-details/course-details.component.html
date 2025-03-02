@@ -8,7 +8,7 @@
       <p class="course-description">{{ course?.description }}</p>
     </mat-card-content>
     <mat-card-actions *ngIf="role === 'admin' || role === 'teacher'">
-      <button mat-raised-button color="primary" (click)="AddLesson()">
+      <button mat-raised-button [appButtonStyle]="'primary'"  (click)="AddLesson()">
         Add Lesson
       </button>
     </mat-card-actions>
@@ -32,12 +32,12 @@
           <button mat-icon-button (click)="EditLesson(l)">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button color="warn" (click)="DeleteLesson(l.id)">
+          <button mat-icon-button [appButtonStyle]="'warn'" (click)="DeleteLesson(l.id)">
             <mat-icon>delete</mat-icon>
           </button>
         </ng-container>
         <ng-container *ngIf="role === 'student'">
-          <button mat-button color="primary">
+          <button mat-button[appButtonStyle]="'primary'" >
             <mat-icon>play_circle</mat-icon> Start Lesson
           </button>
           <button mat-icon-button color="accent">

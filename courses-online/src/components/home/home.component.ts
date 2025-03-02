@@ -7,6 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AuthService } from '../../services/auth.service';
+import { ButtonStyleDirective } from '../../directives/button-style.directive';
 @Component({
   selector: 'app-home',
   imports: [
@@ -15,7 +16,7 @@ import { AuthService } from '../../services/auth.service';
     MatIconModule,
     MatToolbarModule,
     MatGridListModule,
-    MatDialogModule,
+    MatDialogModule,ButtonStyleDirective
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

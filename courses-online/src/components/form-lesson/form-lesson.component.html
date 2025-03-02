@@ -24,13 +24,13 @@
       <div class="actions">
         <button
           mat-raised-button
-          color="primary"
+          [appButtonStyle]="'primary'" 
           type="submit"
           [disabled]="lessonForm.invalid"
         >
           {{ isEdit ? "Save Changes" : "Add Lesson" }}
         </button>
-        <button mat-raised-button color="warn" (click)="onCancel()">
+        <button mat-raised-button [appButtonStyle]="'warn'" (click)="onCancel()">
           Cancel
         </button>
       </div>
