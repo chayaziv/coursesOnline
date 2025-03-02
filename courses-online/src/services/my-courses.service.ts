@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Course } from '../models/course.model';
 import { HttpClient } from '@angular/common/http';
 import { CoursesService } from './courses.service';
@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root',
 })
-export class MyCoursesService implements OnInit {
+export class MyCoursesService {
   private apiUrl = 'http://localhost:3000/api/courses';
 
   private myCoursesBehaviorSubject = new BehaviorSubject<Course[]>([]);
@@ -17,10 +17,10 @@ export class MyCoursesService implements OnInit {
 
   private studentId: string = '';
 
-  constructor(private http: HttpClient, public authService: AuthService) {}
-  ngOnInit(): void {
+  constructor(private http: HttpClient, public authService: AuthService) {
     this.authService.userId$.subscribe((id) => {
       this.studentId = id!;
+      console.log('studentId in MyCoursesService', this.studentId);
       this.getMyCourses();
     });
   }
@@ -55,5 +55,12 @@ export class MyCoursesService implements OnInit {
     response.subscribe(() => {
       this.getMyCourses();
     });
+  }
+  isEnrolled(courseId: string) {
+    const res = this.myCourses$.pipe(
+      map((courses) => courses.some((course) => course.id === courseId))
+    );
+    console.log('isEnrolled', res);
+    return res;
   }
 }

@@ -13,7 +13,7 @@ import { MyCoursesService } from '../../services/my-courses.service';
 })
 export class MyCoursesComponent implements OnInit {
   myCourses: Course[] = [];
-  userId: string = '';
+  
   constructor(
     public myCoursesService: MyCoursesService,
     public authService: AuthService
@@ -21,11 +21,10 @@ export class MyCoursesComponent implements OnInit {
   ngOnInit(): void {
     this.myCoursesService.myCourses$.subscribe((courses) => {
       this.myCourses = courses;
+      console.log('this.myCourses', this.myCourses);
     });
-    this.authService.userId$.subscribe((userId) => {
-      this.userId = userId!;
-      this.myCoursesService.getMyCourses();
-    });
+    this.myCoursesService.getMyCourses();
+    
   }
   EnrollCourse(courseId: string) {
     this.myCoursesService.EnrollCourse(courseId);

@@ -15,7 +15,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -28,6 +28,10 @@ import { Router } from '@angular/router';
     MatCheckboxModule,
     MatToolbarModule,
     MatIconModule,
+    RouterModule,
+
+
+    
   ],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.css',

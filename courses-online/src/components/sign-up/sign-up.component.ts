@@ -18,7 +18,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -32,6 +32,7 @@ import { Router } from '@angular/router';
     MatCheckboxModule,
     MatToolbarModule,
     MatIconModule,
+    RouterModule,
   ],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css',

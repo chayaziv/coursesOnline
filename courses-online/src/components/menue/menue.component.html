@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="toolbar" color="primary">
   <span class="title">Courses Online</span>
   <span class="spacer"></span>
 
@@ -8,6 +8,11 @@
   </button>
 
   <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/about">
+      <mat-icon>info</mat-icon>
+      <span>About</span>
+    </button>
+
     <button mat-menu-item routerLink="/home">
       <mat-icon>home</mat-icon>
       <span>Home</span>
@@ -33,10 +38,7 @@
       <span>My Courses</span>
     </button>
 
-    <button mat-menu-item routerLink="/admin">
-      <mat-icon>admin_panel_settings</mat-icon>
-      <span>Admin</span>
-    </button>
+    
 
     <button mat-menu-item (click)="logout()">
       <mat-icon>power_settings_new</mat-icon>

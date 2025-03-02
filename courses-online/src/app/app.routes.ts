@@ -9,9 +9,12 @@ import { manageCoursesGuard } from '../guards/manage-courses.guard';
 
 import { CourseDetailsComponent } from '../components/course-details/course-details.component';
 import { MyCoursesComponent } from '../components/my-courses/my-courses.component';
+import { AboutComponent } from '../components/about/about.component';
+import { studentGuard } from '../guards/student.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent },
   { path: 'signIn', component: SignInComponent },
   { path: 'signUp', component: SignUpComponent },
@@ -21,5 +24,9 @@ export const routes: Routes = [
     canActivate: [coursesGuard],
     children: [{ path: ':id', component: CourseDetailsComponent }],
   },
-  { path: 'mycourses', component: MyCoursesComponent },
+  {
+    path: 'mycourses',
+    component: MyCoursesComponent,
+    canActivate: [studentGuard],
+  },
 ];

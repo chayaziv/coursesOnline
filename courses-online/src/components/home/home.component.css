@@ -1,76 +1,76 @@
 /* Home Page Styles */
 .container {
-    padding: 20px 
+    padding: 20px;
   }
   
   .intro {
-    margin-bottom: 40px 
+    margin-bottom: 40px;
   }
   
   .intro-card {
-    padding: 20px 
-    margin-bottom: 20px 
+    padding: 20px;
+    margin-bottom: 20px;
   }
   
   .features {
-    margin-bottom: 40px 
+    margin-bottom: 40px;
   }
   
   .feature-cards {
-    display: flex 
-    gap: 20px 
+    display: flex;
+    gap: 20px;
   }
   
   .feature-card {
-    width: 30% 
+    width: 30%;
   }
   
   .popular-courses {
-    margin-bottom: 40px 
+    margin-bottom: 40px;
   }
   
   .course-list {
-    display: flex 
-    gap: 20px 
+    display: flex;
+    gap: 20px;
   }
   
   .course-card {
-    width: 30% 
+    width: 30%;
   }
   
   .testimonials {
-    margin-bottom: 40px 
+    margin-bottom: 40px;
   }
   
   .testimonial-cards {
-    display: flex 
-    gap: 20px 
+    display: flex;
+    gap: 20px;
   }
   
   .testimonial-card {
-    width: 45% 
+    width: 45%;
   }
   
   .cta {
-    text-align: center 
+    text-align: center;
   }
   
   .cta-card {
-    padding: 20px 
+    padding: 20px;
   }
   
   h2 {
-    font-size: 1.5rem 
-    font-weight: bold 
-    margin-bottom: 10px 
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
   }
   
   p {
-    font-size: 1rem 
-    margin-bottom: 10px 
+    font-size: 1rem;
+    margin-bottom: 10px;
   }
   
   button {
-    margin-top: 10px 
+    margin-top: 10px;
   }
   

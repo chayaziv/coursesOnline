@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 import { Course } from '../models/course.model';
 
 @Injectable({
@@ -52,8 +52,6 @@ export class CoursesService {
     });
     return response;
   }
-
-  getCoursesByStudentId(studentId: string): Observable<Course[]> {
-    return this.http.get<Course[]>(`${this.apiUrl}/student/${studentId}`);
-  }
+  
+  
 }

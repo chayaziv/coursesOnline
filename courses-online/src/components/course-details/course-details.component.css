@@ -1,212 +1,212 @@
 /* General Styles */
 body {
-  font-family: "Roboto", sans-serif 
-  background-color: #f4f6f9 
-  color: #333 
+  font-family: "Roboto", sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
 }
 .add-lesson-button {
-  display: flex 
-  align-items: center  /* Aligns the text vertically */
-  padding: 0  /* Removes extra padding */
-  font-weight: bold  /* Makes the text bold */
+  display: flex;
+  align-items: center; /* Aligns the text vertically */
+  padding: 0; /* Removes extra padding */
+  font-weight: bold; /* Makes the text bold */
 }
 
 .small-text {
-  font-size: 0.75rem  /* Makes the text small */
-  margin-left: 8px  /* Adds a small space between the icon and the text */
-  white-space: nowrap  /* Ensures the text stays in one line */
-  text-transform: none  /* Removes automatic uppercase */
+  font-size: 0.75rem; /* Makes the text small */
+  margin-left: 8px; /* Adds a small space between the icon and the text */
+  white-space: nowrap; /* Ensures the text stays in one line */
+  text-transform: none; /* Removes automatic uppercase */
 }
 /* Course Card */
 .course-card {
-  background: linear-gradient(135deg, #1f8ae2, #2056a8)  /* Shades of blue */
-  color: white 
-  padding: 24px 
-  border-radius: 12px 
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1) 
-  text-align: center 
-  transition: transform 0.3s ease 
+  background: linear-gradient(135deg, #84c0f1, #568ee2); /* Shades of blue */
+  color: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
 .course-card:hover {
-  transform: scale(1.02) 
+  transform: scale(1.02);
 }
 
 .course-card mat-card-title {
-  font-size: 2.5rem 
-  font-weight: bold 
-  color: white 
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
 }
 
 .course-card mat-card-content p {
-  font-size: 1.4rem 
-  color: white 
-  line-height: 1.6 
-  margin-top: 12px 
+  font-size: 1.4rem;
+  color: white;
+  line-height: 1.6;
+  margin-top: 12px;
 }
 
 /* Lessons Container */
 .lessons-container {
-  display: grid 
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) 
-  gap: 16px 
-  padding: 20px 
-  margin: auto 
-  max-width: 1000px 
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  margin: auto;
+  max-width: 1000px;
 }
 
 /* Lesson Card */
 .lesson-card {
-  background-color: #ffffff 
-  border-radius: 12px 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) 
-  padding: 20px 
-  transition: transform 0.3s ease 
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
 }
 
 .lesson-card:hover {
-  transform: scale(1.05) 
+  transform: scale(1.05);
 }
 
 .lesson-icon {
-  font-size: 36px 
-  color: #1976d2 
-  margin-right: 10px 
+  font-size: 36px;
+  color: #1976d2;
+  margin-right: 10px;
 }
 
 mat-card-title {
-  font-size: 1.6rem 
-  font-weight: bold 
-  color: #333 
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #333;
 }
 
 mat-card-content p {
-  font-size: 1rem 
-  color: #555 
-  margin-top: 10px 
+  font-size: 1rem;
+  color: #555;
+  margin-top: 10px;
 }
 
 mat-card-actions {
-  display: flex 
-  justify-content: space-between 
-  padding: 10px 0 
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
 }
 
 /* Button Styles */
 mat-icon {
-  vertical-align: middle 
+  vertical-align: middle;
 }
 
 button mat-icon {
-  margin-right: 5px 
+  margin-right: 5px;
 }
 
 /* No Lessons Available */
 .no-lessons {
-  text-align: center 
-  padding: 20px 
-  font-size: 1.2rem 
-  color: #777 
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2rem;
+  color: #777;
 }
 
 .empty-icon {
-  font-size: 48px 
-  color: #bbb 
+  font-size: 48px;
+  color: #bbb;
 }
 
 /* Header (Course and Lesson titles) */
 .course-header {
-  margin-bottom: 24px 
+  margin-bottom: 24px;
 }
 
 .course-title {
-  font-size: 2.5rem 
-  font-weight: bold 
-  color: #333 
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
 }
 
 .course-description {
-  font-size: 1.4rem 
-  color: #777 
-  line-height: 1.6 
-  margin-top: 12px 
+  font-size: 1.4rem;
+  color: #777;
+  line-height: 1.6;
+  margin-top: 12px;
 }
 
 /* Buttons in Mat Card Actions */
 button.mat-button {
-  background-color: #1976d2 
-  color: white 
-  border-radius: 8px 
-  padding: 10px 20px 
-  font-weight: bold 
-  transition: background-color 0.3s 
+  background-color: #1976d2;
+  color: white;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
 button.mat-button:hover {
-  background-color: #1565c0 
+  background-color: #1565c0;
 }
 
 button.mat-icon-button {
-  background-color: #f1f1f1 
-  border-radius: 50% 
-  padding: 10px 
-  transition: background-color 0.3s 
+  background-color: #f1f1f1;
+  border-radius: 50%;
+  padding: 10px;
+  transition: background-color 0.3s;
 }
 
 button.mat-icon-button:hover {
-  background-color: #e0e0e0 
+  background-color: #e0e0e0;
 }
 
 button.mat-icon-button {
-  background-color: #ff3b30 
+  background-color: #ff3b30;
 }
 
 button.mat-icon-button {
-  background-color: #e0322a 
+  background-color: #e0322a;
 }
 
 /* Responsive Styling for Mobile Devices */
 @media (max-width: 768px) {
   .lessons-container {
-    grid-template-columns: 1fr  /* Single column on small screens */
+    grid-template-columns: 1fr; /* Single column on small screens */
   }
 
   .course-card {
-    padding: 16px 
+    padding: 16px;
   }
 
   .lesson-card {
-    padding: 16px 
+    padding: 16px;
   }
 
   .course-title {
-    font-size: 2rem 
+    font-size: 2rem;
   }
 
   .course-description {
-    font-size: 1.2rem 
+    font-size: 1.2rem;
   }
 }
 /* רקע שחור עם שקיפות, שיהיה מעל לשאר התוכן */
 .overlay {
-  position: fixed  /* מאפשר לטופס להיות מעל כל רכיב אחר */
-  top: 0 
-  left: 0 
-  right: 0 
-  bottom: 0 
-  background-color: rgba(0, 0, 0, 0.7)  /* רקע שחור עם שקיפות */
-  display: flex 
-  justify-content: center 
-  align-items: center 
-  z-index: 1000  /* מוודא שה-overlay נמצא מעל שאר הרכיבים */
+  position: fixed; /* מאפשר לטופס להיות מעל כל רכיב אחר */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* רקע שחור עם שקיפות */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* מוודא שה-overlay נמצא מעל שאר הרכיבים */
 }
 
 /* סגנונות לטופס עצמו */
 /* app-lesson-form {
-  background-color: white 
-  padding: 20px 
-  border-radius: 8px 
-  max-width: 600px 
-  width: 100% 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) 
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 } */

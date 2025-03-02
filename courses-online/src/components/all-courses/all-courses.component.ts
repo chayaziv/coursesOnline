@@ -6,10 +6,13 @@ import { Router, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { MatIcon } from '@angular/material/icon';
 import { CourseFormComponent } from '../course-form/course-form.component';
+import { MyCoursesService } from '../../services/my-courses.service';
+import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-all-courses',
-  imports: [CourseComponent, RouterOutlet, MatIcon, CourseFormComponent],
+  imports: [CourseComponent, RouterOutlet, MatIcon, CourseFormComponent,CommonModule],
   templateUrl: './all-courses.component.html',
   styleUrl: './all-courses.component.css',
 })
@@ -26,7 +29,8 @@ export class AllCoursesComponent {
   constructor(
     private coursesService: CoursesService,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private myCoursesService: MyCoursesService
   ) {}
   ngOnInit() {
     this.coursesService.courses$.subscribe((response) => {
@@ -63,5 +67,14 @@ export class AllCoursesComponent {
   closeForm() {
     this.isAddCourse = this.isEditCourse = false;
   }
-  Enroll(courseId: string) {}
+  Enroll(courseId: string) {
+    this.myCoursesService.EnrollCourse(courseId);
+    console.log('enrolled');
+    this.router.navigate(['/mycourses']);
+  }
+  isEnrolled(courseId: string): Observable<boolean> {
+    return this.myCoursesService.isEnrolled(courseId);
+  }
+  
+  
 }

@@ -4,6 +4,9 @@
 
     <app-course [course]="c">
       <div ngProjectAs="actions">
+        <button mat-raised-button color="primary" (click)="viewLessons(c.id!)">
+          <mat-icon>visibility</mat-icon>
+        </button>
         @if (role == 'admin'|| role == 'teacher') {
         <button mat-raised-button color="warn" (click)="DeleteCourse(c.id!)">
           <mat-icon>delete</mat-icon>
@@ -11,24 +14,24 @@
         <button mat-raised-button color="accent" (click)="EditCourse(c)">
           <mat-icon>edit</mat-icon>
         </button>
-        } @else if (role == 'student') {
+        } @else if (role == 'student' && !(isEnrolled(c.id!) | async)) {
         <button mat-raised-button color="primary" (click)="Enroll(c.id!)">
           Enroll
         </button>
         }
-        <button mat-raised-button color="primary" (click)="viewLessons(c.id!)">
-          <mat-icon>visibility</mat-icon>
-        </button>
       </div>
     </app-course>
 
     } @empty {
 
     <div>No users found</div>
-    }
-    <button mat-raised-button color="primary" (click)="AddCourse()">
-      add course
-    </button>
+    } @if (role == 'admin'|| role == 'teacher') {<button
+      mat-raised-button
+      color="primary"
+      (click)="AddCourse()"
+    >
+      add course</button
+    >}
   </div>
   <div class="course-details">
     <router-outlet></router-outlet>

@@ -1,46 +1,46 @@
 .container {
-    display: flex 
-    height: 100vh  /* גובה מלא של הדף */
+    display: flex;
+    height: 100vh; /* גובה מלא של הדף */
   }
   
   .courses-list {
-    width: 50%  /* 30% מהמסך */
-    background-color: #f4f4f4 
-    padding: 20px 
-    overflow-y: auto  /* גלילה אם יש יותר מדי קורסים */
-    border-right: 2px solid #ddd 
+    width: 50%; /* 30% מהמסך */
+    background-color: #f4f4f4;
+    padding: 20px;
+    overflow-y: auto; /* גלילה אם יש יותר מדי קורסים */
+    border-right: 2px solid #ddd;
   }
   
   .course-details {
-    width: 50%  /* 70% מהמסך */
-    padding: 20px 
+    width: 50%; /* 70% מהמסך */
+    padding: 20px;
   }
   /* סגנון כללי של כפתורים */
 button {
 
   
  
-  transition: transform 0.3s ease, box-shadow 0.3s ease 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
-  transform: translateY(-3px)  /* אפקט הרמה כאשר הכפתור ממוקם */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)  /* הצללה כשהכפתור עלול להימשך */
+  transform: translateY(-3px); /* אפקט הרמה כאשר הכפתור ממוקם */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* הצללה כשהכפתור עלול להימשך */
 }
 
 button:active {
-  transform: translateY(1px)  /* אפקט לחיצה */
-  box-shadow: none  /* מונע הצללה כשהכפתור נלחץ */
+  transform: translateY(1px); /* אפקט לחיצה */
+  box-shadow: none; /* מונע הצללה כשהכפתור נלחץ */
 }
 .overlay {
-  position: fixed  /* מאפשר לטופס להיות מעל כל רכיב אחר */
-  top: 0 
-  left: 0 
-  right: 0 
-  bottom: 0 
-  background-color: rgba(0, 0, 0, 0.7)  /* רקע שחור עם שקיפות */
-  display: flex 
-  justify-content: center 
-  align-items: center 
-  z-index: 1000  /* מוודא שה-overlay נמצא מעל שאר הרכיבים */
+  position: fixed; /* מאפשר לטופס להיות מעל כל רכיב אחר */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* רקע שחור עם שקיפות */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* מוודא שה-overlay נמצא מעל שאר הרכיבים */
 }
