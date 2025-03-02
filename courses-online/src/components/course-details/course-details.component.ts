@@ -84,6 +84,9 @@ export class CourseDetailsComponent implements OnInit {
     this.isEditLesson = true;
     this.isAddLesson = false;
     this.selectedLesson = new Lesson(id, title, content, this.courseId);
+    this.coursesService.getCourseById(this.courseId).subscribe((course) => {
+      this.course = course;
+    });
   }
   closeForm() {
     this.isEditLesson = false;
