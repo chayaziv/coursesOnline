@@ -1,46 +1,142 @@
+/* General Styles */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f5f5f5; /* Lighter background */
+  color: #333;
+}
+
 .container {
-    display: flex;
-    height: 100vh; /* גובה מלא של הדף */
-  }
-  
-  .courses-list {
-    width: 50%; /* 30% מהמסך */
-    background-color: #f4f4f4;
-    padding: 20px;
-    overflow-y: auto; /* גלילה אם יש יותר מדי קורסים */
-    border-right: 2px solid #ddd;
-  }
-  
-  .course-details {
-    width: 50%; /* 70% מהמסך */
-    padding: 20px;
-  }
-  /* סגנון כללי של כפתורים */
-button {
-
-  
- 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  height: 100vh; /* Full page height */
+  padding: 20px;
 }
 
-button:hover {
-  transform: translateY(-3px); /* אפקט הרמה כאשר הכפתור ממוקם */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* הצללה כשהכפתור עלול להימשך */
+.courses-list {
+  width: 40%; /* Reduced width for better balance */
+  background-color: #ffffff;
+  padding: 20px;
+  overflow-y: auto; /* Scrollable list of courses */
+  border-right: 1px solid #ddd;
 }
 
-button:active {
-  transform: translateY(1px); /* אפקט לחיצה */
-  box-shadow: none; /* מונע הצללה כשהכפתור נלחץ */
+.course-details {
+  width: 60%; /* Increased width for details section */
+  padding: 20px;
 }
+
+h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.no-courses {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+/* Add Course Button */
+.add-course-button {
+  font-size: 16px; /* Medium font size */
+  font-weight: 500;
+  padding: 12px 24px;
+  background-color: #1976d2; /* Modern blue color */
+  color: white;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-course-button:hover {
+  background-color: #1565c0; /* Darker blue on hover */
+  transform: translateY(-2px);
+}
+
+.add-course-button:active {
+  transform: translateY(1px); /* Slight push on click */
+}
+
+/* Course Cards */
+app-course {
+  margin-bottom: 20px;
+}
+
+.course-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadows */
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+  transform: scale(1.02); /* Subtle hover effect */
+}
+
+.course-card mat-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.course-card mat-card-content p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.course-card mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+/* Overlay */
 .overlay {
-  position: fixed; /* מאפשר לטופס להיות מעל כל רכיב אחר */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7); /* רקע שחור עם שקיפות */
+  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay with transparency */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* מוודא שה-overlay נמצא מעל שאר הרכיבים */
+  z-index: 1000; /* Ensures it appears above all content */
+}
+
+button.mat-icon-button {
+  background-color: #f1f1f1;
+  border-radius: 50%;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+button.mat-icon-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack the columns on smaller screens */
+  }
+
+  .courses-list {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .course-details {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .add-course-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
 }

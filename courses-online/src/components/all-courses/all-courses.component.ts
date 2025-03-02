@@ -9,10 +9,11 @@ import { CourseFormComponent } from '../course-form/course-form.component';
 import { MyCoursesService } from '../../services/my-courses.service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-all-courses',
-  imports: [CourseComponent, RouterOutlet, MatIcon, CourseFormComponent,CommonModule],
+  imports: [CourseComponent, RouterOutlet, MatIcon, CourseFormComponent,CommonModule,MatButtonModule],
   templateUrl: './all-courses.component.html',
   styleUrl: './all-courses.component.css',
 })
@@ -67,7 +68,14 @@ export class AllCoursesComponent {
   closeForm() {
     this.isAddCourse = this.isEditCourse = false;
   }
- 
+  Enroll(courseId: string) {
+    this.myCoursesService.EnrollCourse(courseId);
+    console.log('enrolled');
+    this.router.navigate(['/mycourses']);
+  }
+  isEnrolled(courseId: string): Observable<boolean> {
+    return this.myCoursesService.isEnrolled(courseId);
+  }
   
   
 }

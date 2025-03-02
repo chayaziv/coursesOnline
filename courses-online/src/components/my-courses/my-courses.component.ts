@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../../models/course.model';
-import { CoursesService } from '../../services/courses.service';
 import { AuthService } from '../../services/auth.service';
 import { CourseComponent } from '../course/course.component';
 import { MyCoursesService } from '../../services/my-courses.service';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-my-courses',
-  imports: [CourseComponent],
+  imports: [CourseComponent, MatButtonModule],
   templateUrl: './my-courses.component.html',
   styleUrl: './my-courses.component.css',
 })
 export class MyCoursesComponent implements OnInit {
   myCourses: Course[] = [];
-  
+  role: string = 'student';
+
   constructor(
     public myCoursesService: MyCoursesService,
     public authService: AuthService
@@ -24,12 +25,6 @@ export class MyCoursesComponent implements OnInit {
       console.log('this.myCourses', this.myCourses);
     });
     this.myCoursesService.getMyCourses();
-    
   }
-  EnrollCourse(courseId: string) {
-    this.myCoursesService.EnrollCourse(courseId);
-  }
-  UnEnrollCourse(courseId: string) {
-    this.myCoursesService.UnEnrollCourse(courseId);
-  }
+  
 }

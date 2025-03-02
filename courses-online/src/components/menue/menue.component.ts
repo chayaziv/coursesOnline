@@ -27,12 +27,16 @@ import { AuthService } from '../../services/auth.service';
 })
 export class MenueComponent implements OnInit {
   isAuth: boolean = false;
+  role: string = '';
 
   constructor(private router: Router, private authService: AuthService) {}
   ngOnInit(): void {
     this.authService.isAuth$.subscribe((auth) => {
       this.isAuth = auth;
     });
+    this.authService.role$.subscribe((role) => {
+      this.role = role;
+    })
   }
 
   logout() {

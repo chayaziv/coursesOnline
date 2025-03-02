@@ -1,58 +1,55 @@
+
 <div class="course-details">
   <mat-card class="course-card">
     <mat-card-header>
       <mat-card-title>{{ course?.title }}</mat-card-title>
     </mat-card-header>
-
-    <p>{{ course?.description }}</p>
-    @if(role === 'admin' || role === 'teacher') {
-
-    <button
-      mat-raised-button
-      size="small"
-      color="primary"
-      (click)="AddLesson()"
-      class="add-lesson-button"
-    >
-      <span class="small-text">Add Lesson</span>
-    </button>
-
-    }
-  </mat-card>
-</div>
-
-<div class="lessons-container">
-  @for (l of lessons; track l.id) {
-  <mat-card class="lesson-card">
-    <mat-card-header>
-      <mat-icon class="lesson-icon">menu_book</mat-icon>
-      <mat-card-title>{{ l.title }}</mat-card-title>
-    </mat-card-header>
-
     <mat-card-content>
-      <p>{{ l.content }}</p>
+      <p class="course-description">{{ course?.description }}</p>
     </mat-card-content>
-    <mat-card-actions>
-      @if(role === 'admin' || role === 'teacher') {
-
-      <button mat-icon-button color="accent" (click)="EditLesson(l)">
-        <mat-icon>edit</mat-icon>
+    <mat-card-actions *ngIf="role === 'admin' || role === 'teacher'">
+      <button mat-raised-button color="primary" (click)="AddLesson()">
+        Add Lesson
       </button>
-      <button mat-icon-button color="warn" (click)="DeleteLesson(l.id)">
-        <mat-icon>delete</mat-icon>
-      </button>
-
-      } @else if (role === 'student') {
-      <button mat-button color="primary">
-        <mat-icon>play_circle</mat-icon> Start Lesson
-      </button>
-      <button mat-icon-button color="warn">
-        <mat-icon>favorite</mat-icon>
-      </button>
-      }
     </mat-card-actions>
   </mat-card>
-  } @empty {
+</div>
+<h2>Lessons</h2>
+<div class="lessons-container">
+ 
+  @for(l of lessons; track l.id) {
+  <div class="lesson-card">
+    <mat-card>
+      <mat-card-header>
+        <mat-icon class="lesson-icon">menu_book</mat-icon>
+        <mat-card-title>{{ l.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ l.content }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <ng-container *ngIf="role === 'admin' || role === 'teacher'">
+          <button mat-icon-button (click)="EditLesson(l)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="DeleteLesson(l.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </ng-container>
+        <ng-container *ngIf="role === 'student'">
+          <button mat-button color="primary">
+            <mat-icon>play_circle</mat-icon> Start Lesson
+          </button>
+          <button mat-icon-button color="accent">
+            <mat-icon>favorite</mat-icon>
+          </button>
+        </ng-container>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  }@empty {
+
   <div class="no-lessons">
     <mat-icon class="empty-icon">sentiment_dissatisfied</mat-icon>
     <p>No lessons available</p>
@@ -61,7 +58,6 @@
 </div>
 
 @if(isEditLesson|| isAddLesson) {
-
 <div class="overlay">
   <app-lesson-form
     [isEdit]="isEditLesson"

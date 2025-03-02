@@ -27,6 +27,7 @@ export class MyCoursesService {
 
   getMyCourses() {
     console.log('in getMyCourses');
+    if(!this.studentId) return
     const response = this.http.get<Course[]>(
       `${this.apiUrl}/student/${this.studentId}`
     );

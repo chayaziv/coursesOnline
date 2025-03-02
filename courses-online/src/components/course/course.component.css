@@ -1,16 +1,133 @@
-.course-card {
-    max-width: 400px;
-    margin: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+/* General Styles */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f9f9f9; /* Light, neutral background */
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+mat-card {
+  background-color: #ffffff; /* Clean white background for the card */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effect */
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+mat-card:hover {
+  transform: translateY(-3px); /* Slight lift on hover */
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+mat-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+mat-icon {
+  font-size: 24px;
+  color: #1976d2; /* Primary color for icons */
+}
+
+/* Course Card Title */
+mat-card-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+/* Course Actions */
+mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+button.mat-raised-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.mat-raised-button:hover {
+  transform: translateY(-2px);
+}
+
+button.mat-raised-button:active {
+  transform: translateY(1px);
+}
+
+/* Button Colors for Different Roles */
+button.mat-raised-button[color="warn"] {
+  background-color: #f44336; /* Red for warn buttons */
+  color: white;
+}
+
+button.mat-raised-button[color="warn"]:hover {
+  background-color: #e53935;
+}
+
+button.mat-raised-button[color="primary"] {
+  background-color: #1976d2; /* Blue for primary buttons */
+  color: white;
+}
+
+button.mat-raised-button[color="primary"]:hover {
+  background-color: #1565c0;
+}
+
+button.mat-raised-button[color="accent"] {
+  background-color: #ff9800; /* Orange for accent buttons */
+  color: white;
+}
+
+button.mat-raised-button[color="accent"]:hover {
+  background-color: #fb8c00;
+}
+
+/* Enroll/Unenroll Buttons */
+button.mat-raised-button.mat-enroll {
+  background-color: #388e3c; /* Green for enroll button */
+  color: white;
+}
+
+button.mat-raised-button.mat-enroll:hover {
+  background-color: #2c6f2f;
+}
+
+button.mat-raised-button.mat-unenroll {
+  background-color: #f44336; /* Red for unenroll button */
+  color: white;
+}
+
+button.mat-raised-button.mat-unenroll:hover {
+  background-color: #e53935;
+}
+
+/* Course Icon */
+.course-icon {
+  font-size: 36px;
+  color: #1976d2;
+  margin-right: 10px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  mat-card {
+    padding: 16px;
   }
-  
-  mat-card-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+
+  mat-card-title {
+    font-size: 1.5rem;
   }
-  
-  mat-icon {
-    color: #3f51b5;
+
+  button.mat-raised-button {
+    font-size: 0.9rem;
   }
-  
+}

@@ -32,13 +32,13 @@
       <mat-icon>school</mat-icon>
       <span>Courses</span>
     </button>
-
+    @if(role=="student"){
     <button mat-menu-item routerLink="/mycourses">
       <mat-icon>playlist_add_check</mat-icon>
       <span>My Courses</span>
     </button>
 
-    
+    }
 
     <button mat-menu-item (click)="logout()">
       <mat-icon>power_settings_new</mat-icon>
