@@ -7,7 +7,7 @@ import { Course } from '../models/course.model';
   providedIn: 'root',
 })
 export class CoursesService {
-  private apiUrl = 'http://localhost:3000/api/courses';
+  private apiUrl = ' https://coursesserver-p3is.onrender.com/api/courses';
 
   private coursesBehaviorSubject = new BehaviorSubject<Course[]>([]);
   public courses$: Observable<Course[]> =
@@ -52,6 +52,4 @@ export class CoursesService {
     });
     return response;
   }
-  
-  
 }
