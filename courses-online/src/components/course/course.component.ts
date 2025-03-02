@@ -13,15 +13,8 @@ import { Router } from '@angular/router';
   templateUrl: './course.component.html',
   styleUrl: './course.component.css',
 })
-export class CourseComponent  {
+export class CourseComponent {
   @Input() course!: Course;
 
-
-
-  constructor( public router: Router) {}
-  
-  // ViewLesson() {
-  //   console.log(this.course.id,"view lesson");
-  //   this.router.navigate([`/lessons/${this.course.id}`]);
-  // }
+  constructor(public router: Router) {}
 }

@@ -61,7 +61,6 @@ export class CourseFormComponent {
             teacherId: this.teacherId,
           })
           .subscribe(() => {
-            console.log('Course updated');
             this.onCancel();
           });
       } else {
@@ -70,7 +69,6 @@ export class CourseFormComponent {
             ...formValues,
           })
           .subscribe(() => {
-            console.log('Course added');
             this.onCancel();
           });
       }
@@ -79,7 +77,7 @@ export class CourseFormComponent {
 
   onCancel() {
     // כאן נוכל להוסיף לוגיקה לסגירת הטופס
-    console.log('Form canceled');
+
     this.closeForm.emit();
   }
 }

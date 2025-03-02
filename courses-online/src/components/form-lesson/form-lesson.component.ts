@@ -1,4 +1,4 @@
-// import { Component } from '@angular/core';
+// import { Component } from '@angular/core'
 
 // @Component({
 //   selector: 'app-form-lesson',
@@ -88,7 +88,7 @@ export class LessonFormComponent implements OnInit {
 
   onCancel() {
     // כאן נוכל להוסיף לוגיקה לסגירת הטופס
-    console.log('Form canceled');
+
     this.closeForm.emit();
   }
 }

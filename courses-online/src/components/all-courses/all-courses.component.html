@@ -1,9 +1,6 @@
 <div class="container">
   <div class="courses-list">
-    
-    <button mat-raised-button color="primary" (click)="AddCourse()">add course</button>
-
-    @for(c of courses; track c.id) {
+    @for(c of courses ; track c.id) {
 
     <app-course [course]="c">
       <div ngProjectAs="actions">
@@ -11,21 +8,17 @@
         <button mat-raised-button color="warn" (click)="DeleteCourse(c.id!)">
           <mat-icon>delete</mat-icon>
         </button>
-       
-
         <button mat-raised-button color="accent" (click)="EditCourse(c)">
           <mat-icon>edit</mat-icon>
         </button>
         } @else if (role == 'student') {
-
-
         <button mat-raised-button color="primary" (click)="Enroll(c.id!)">
-          Enroll</button>
-         }
+          Enroll
+        </button>
+        }
         <button mat-raised-button color="primary" (click)="viewLessons(c.id!)">
           <mat-icon>visibility</mat-icon>
         </button>
-        
       </div>
     </app-course>
 
@@ -33,6 +26,9 @@
 
     <div>No users found</div>
     }
+    <button mat-raised-button color="primary" (click)="AddCourse()">
+      add course
+    </button>
   </div>
   <div class="course-details">
     <router-outlet></router-outlet>

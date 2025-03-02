@@ -1,46 +1,46 @@
 .sign-in-card {
-    max-width: 400px;
-    margin: auto;
-    margin-top: 50px;
-    padding: 20px;
-    border-radius: 10px;
+    max-width: 400px 
+    margin: auto 
+    margin-top: 50px 
+    padding: 20px 
+    border-radius: 10px 
   }
   
   .sign-in-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: flex 
+    flex-direction: column 
+    align-items: center 
   }
   
   .avatar-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: var(--mat-primary);
-    border-radius: 50%;
-    margin-bottom: 10px;
+    display: flex 
+    justify-content: center 
+    align-items: center 
+    width: 50px 
+    height: 50px 
+    background-color: var(--mat-primary) 
+    border-radius: 50% 
+    margin-bottom: 10px 
   }
   
   .avatar-icon {
-    color: white;
-    font-size: 30px;
+    color: white 
+    font-size: 30px 
   }
   
   .full-width {
-    width: 100%;
-    margin-bottom: 16px;
+    width: 100% 
+    margin-bottom: 16px 
   }
   
   .register-link {
-    text-align: center;
-    margin-top: 10px;
+    text-align: center 
+    margin-top: 10px 
   }
   
   .register-link a {
-    text-decoration: none;
-    color: var(--mat-primary);
-    font-weight: bold;
+    text-decoration: none 
+    color: var(--mat-primary) 
+    font-weight: bold 
   }
   

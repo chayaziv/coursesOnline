@@ -19,7 +19,7 @@ export class AuthService {
   private userNameSubject = new BehaviorSubject<string>('Guest');
   public userName$ = this.userNameSubject.asObservable();
 
-  constructor(private http: HttpClient,private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   // התחברות
   SignIn(user: SignInUser) {

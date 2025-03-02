@@ -31,7 +31,6 @@ export class AllCoursesComponent {
   ngOnInit() {
     this.coursesService.courses$.subscribe((response) => {
       this.courses = response;
-      console.log('All courses:', this.courses);
     });
     this.authService.role$.subscribe((role) => {
       this.role = role;
@@ -43,7 +42,6 @@ export class AllCoursesComponent {
     this.coursesService.getAllCourses();
   }
   viewLessons(courseId: string) {
-    console.log(courseId, 'view lesson ALL');
     this.router.navigate([`/courses/${courseId}`]);
   }
   DeleteCourse(id: string) {
@@ -55,7 +53,6 @@ export class AllCoursesComponent {
     this.isEditCourse = true;
     this.isAddCourse = false;
     this.selectedCourse = { ...c };
-    console.log('Edit course:', this.selectedCourse);
   }
 
   AddCourse() {
@@ -65,9 +62,6 @@ export class AllCoursesComponent {
   }
   closeForm() {
     this.isAddCourse = this.isEditCourse = false;
-    console.log('Close form');
   }
-  Enroll(courseId: string) {
-    console.log(courseId, 'enroll');
-  }
+  Enroll(courseId: string) {}
 }

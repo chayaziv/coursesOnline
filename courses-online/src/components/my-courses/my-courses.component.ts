@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Course } from '../../models/course.model';
 import { CoursesService } from '../../services/courses.service';
 import { AuthService } from '../../services/auth.service';
-import { CourseComponent } from "../course/course.component";
+import { CourseComponent } from '../course/course.component';
+import { MyCoursesService } from '../../services/my-courses.service';
 
 @Component({
   selector: 'app-my-courses',
@@ -14,22 +15,22 @@ export class MyCoursesComponent implements OnInit {
   myCourses: Course[] = [];
   userId: string = '';
   constructor(
-    public coursesService: CoursesService,
+    public myCoursesService: MyCoursesService,
     public authService: AuthService
   ) {}
   ngOnInit(): void {
+    this.myCoursesService.myCourses$.subscribe((courses) => {
+      this.myCourses = courses;
+    });
     this.authService.userId$.subscribe((userId) => {
       this.userId = userId!;
-      this.coursesService
-        .getCoursesByStudentId(this.userId)
-        .subscribe((courses) => {
-          this.myCourses = courses;
-          console.log('My courses:', this.myCourses);
-        });
+      this.myCoursesService.getMyCourses();
     });
   }
-
-  UnEnroll(courseId: string) {
-    console.log(courseId, 'unEnroll');
+  EnrollCourse(courseId: string) {
+    this.myCoursesService.EnrollCourse(courseId);
+  }
+  UnEnrollCourse(courseId: string) {
+    this.myCoursesService.UnEnrollCourse(courseId);
   }
 }

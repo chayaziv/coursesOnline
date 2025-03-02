@@ -13,9 +13,8 @@ export class UserService {
   private currentUserSubject = new BehaviorSubject<User>(emptyUser); // Subject להחזיק את פרטי המשתמש
   public currentUser$: Observable<User> =
     this.currentUserSubject.asObservable(); // Observable שיאפשר להאזין לשינויים
- 
-  constructor(private http: HttpClient, private authService: AuthService) {
-  }
+
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   private getUserById(userId: string): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/${userId}`); // מבצע קריאה לשרת כדי לקבל את פרטי המשתמש

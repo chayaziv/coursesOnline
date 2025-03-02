@@ -61,18 +61,14 @@
 </div>
 
 @if(isEditLesson|| isAddLesson) {
- 
-  <div class="overlay">
 
-  
-<app-lesson-form
-  [isEdit]="isEditLesson"
-  [courseId]="courseId"
-  [lesson]="selectedLesson"
-  (closeForm)="closeForm()"
->
-</app-lesson-form>
+<div class="overlay">
+  <app-lesson-form
+    [isEdit]="isEditLesson"
+    [courseId]="courseId"
+    [lesson]="selectedLesson"
+    (closeForm)="closeForm()"
+  >
+  </app-lesson-form>
 </div>
 }
-
-

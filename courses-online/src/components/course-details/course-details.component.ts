@@ -47,7 +47,6 @@ export class CourseDetailsComponent implements OnInit {
       .pipe(
         switchMap((params) => {
           this.courseId = params.get('id') as string;
-          console.log('Course ID:', this.courseId);
 
           return forkJoin({
             course: this.coursesService.getCourseById(this.courseId), // קריאה לפרטי הקורס
@@ -70,7 +69,7 @@ export class CourseDetailsComponent implements OnInit {
     this.selectedLesson = new Lesson('', '', '', '');
   }
   DeleteLesson(id: string) {
-    this.lessonService.deleteLesson(id,this.courseId).subscribe(() => {
+    this.lessonService.deleteLesson(id, this.courseId).subscribe(() => {
       console.log('Lesson deleted, fetching updated list...');
       this.lessonService
         .getLessonsForCourse(this.courseId)
@@ -90,10 +89,9 @@ export class CourseDetailsComponent implements OnInit {
     this.isEditLesson = false;
     this.isAddLesson = false;
     this.lessonService
-        .getLessonsForCourse(this.courseId)
-        .subscribe((lessons) => {
-          this.lessons = lessons;
-        });
-
+      .getLessonsForCourse(this.courseId)
+      .subscribe((lessons) => {
+        this.lessons = lessons;
+      });
   }
 }
