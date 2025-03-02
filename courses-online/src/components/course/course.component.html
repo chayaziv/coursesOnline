@@ -3,11 +3,30 @@
     <mat-icon>school</mat-icon>
     <mat-card-title>{{ course.title }}</mat-card-title>
   </mat-card-header>
-
+ 
 
   <mat-card-actions>
-    <ng-content select="actions"></ng-content>
-    
+    <!-- <ng-content select="[slot=actions]"></ng-content> -->
+    <!-- <button mat-raised-button color="primary" >
+      <mat-icon>visibility</mat-icon>
+    </button> -->
+    <div slot="actions">
+      <button mat-raised-button color="primary" (click)="View()">
+        <mat-icon>visibility</mat-icon>
+      </button>
+      @if (role == 'admin'|| role == 'teacher') {
+      <button mat-raised-button color="warn" (click)="Delete()">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-raised-button color="accent" (click)="Edit()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      } @else if (role == 'student' && !(isEnrolled() | async)) {
+      <button mat-raised-button color="primary" (click)="Enroll()">
+        Enroll
+      </button>
+      }
+    </div>
    
   </mat-card-actions>
 </mat-card>

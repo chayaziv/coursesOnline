@@ -67,14 +67,7 @@ export class AllCoursesComponent {
   closeForm() {
     this.isAddCourse = this.isEditCourse = false;
   }
-  Enroll(courseId: string) {
-    this.myCoursesService.EnrollCourse(courseId);
-    console.log('enrolled');
-    this.router.navigate(['/mycourses']);
-  }
-  isEnrolled(courseId: string): Observable<boolean> {
-    return this.myCoursesService.isEnrolled(courseId);
-  }
+ 
   
   
 }
