@@ -7,30 +7,29 @@ import { Lesson } from '../models/lesson.model';
   providedIn: 'root',
 })
 export class LessonService {
-  baseUrl: string = 'http://localhost:3000/api/courses';
+  baseUrl: string = 'coursesserver-p3is.onrender.com/api/courses';
 
   constructor(private http: HttpClient) {}
 
   getLessonsForCourse(id: string): Observable<Lesson[]> {
-    return this.http.get<Lesson[]>(`${this.baseUrl}/${id}/lessons`); 
+    return this.http.get<Lesson[]>(`https://${this.baseUrl}/${id}/lessons`);
   }
 
   deleteLesson(id: string, courseId: string): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/${courseId}/lessons/${id}`); 
+    return this.http.delete<void>(`https://${this.baseUrl}/${courseId}/lessons/${id}`);
   }
 
   addLesson(courseId: string, lesson: Lesson): Observable<Lesson> {
     return this.http.post<Lesson>(
-      `${this.baseUrl}/${courseId}/lessons`,
+      `https://${this.baseUrl}/${courseId}/lessons`,
       lesson
-    ); 
+    );
   }
 
   updateLesson(id: string, lesson: Lesson): Observable<Lesson> {
-    
     return this.http.put<Lesson>(
-      `${this.baseUrl}/${lesson.courseId}/lessons/${id}`,
+      `https://${this.baseUrl}/${lesson.courseId}/lessons/${id}`,
       lesson
-    ); 
+    );
   }
 }

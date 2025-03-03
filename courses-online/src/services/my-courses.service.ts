@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class MyCoursesService {
-  private apiUrl = 'http://localhost:3000/api/courses';
+  private apiUrl = 'coursesserver-p3is.onrender.com/api/courses';
 
   private myCoursesBehaviorSubject = new BehaviorSubject<Course[]>([]);
   public myCourses$: Observable<Course[]> =
@@ -20,16 +20,15 @@ export class MyCoursesService {
   constructor(private http: HttpClient, public authService: AuthService) {
     this.authService.userId$.subscribe((id) => {
       this.studentId = id!;
-    
+
       this.getMyCourses();
     });
   }
 
   getMyCourses() {
-
     if (!this.studentId) return;
     const response = this.http.get<Course[]>(
-      `${this.apiUrl}/student/${this.studentId}`
+      `https://${this.apiUrl}/student/${this.studentId}`
     );
     response.subscribe(
       (courses) => {
@@ -39,8 +38,7 @@ export class MyCoursesService {
     );
   }
   EnrollCourse(courseId: string) {
-   
-    const response = this.http.post<void>(`${this.apiUrl}/${courseId}/enroll`, {
+    const response = this.http.post<void>(`https://${this.apiUrl}/${courseId}/enroll`, {
       userId: this.studentId,
     });
     response.subscribe(() => {
@@ -48,9 +46,8 @@ export class MyCoursesService {
     });
   }
   UnEnrollCourse(courseId: string) {
-   
     const response = this.http.delete<void>(
-      `${this.apiUrl}/${courseId}/unenroll`,
+      `https://${this.apiUrl}/${courseId}/unenroll`,
       { body: { userId: this.studentId } }
     );
     response.subscribe(() => {

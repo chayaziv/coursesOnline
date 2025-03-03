@@ -7,7 +7,7 @@ import { Course } from '../models/course.model';
   providedIn: 'root',
 })
 export class CoursesService {
-  private apiUrl = 'http://localhost:3000/api/courses';
+  private apiUrl = 'coursesserver-p3is.onrender.com/api/courses';
 
   private coursesBehaviorSubject = new BehaviorSubject<Course[]>([]);
   public courses$: Observable<Course[]> =
@@ -16,8 +16,7 @@ export class CoursesService {
   constructor(private http: HttpClient) {}
 
   getAllCourses() {
-
-    const response = this.http.get<Course[]>(this.apiUrl);
+    const response = this.http.get<Course[]>(`https://${this.apiUrl}`);
     response.subscribe(
       (courses) => {
         this.coursesBehaviorSubject.next(courses);
@@ -27,32 +26,40 @@ export class CoursesService {
   }
 
   deleteCourse(id: string): Observable<void> {
-    const response = this.http.delete<void>(`${this.apiUrl}/${id}`);
-    response.subscribe(() => {
-      this.getAllCourses();
-    },(error) => alert('Error:' + error.message));
+    const response = this.http.delete<void>(`https://${this.apiUrl}/${id}`);
+    response.subscribe(
+      () => {
+        this.getAllCourses();
+      },
+      (error) => alert('Error:' + error.message)
+    );
     return response;
   }
 
   getCourseById(id: string): Observable<Course> {
-    return this.http.get<Course>(`${this.apiUrl}/${id}`);
+    return this.http.get<Course>(`https://${this.apiUrl}/${id}`);
   }
   addCourse(course: Course) {
-    return this.http.post<{ courseId: string }>(this.apiUrl, course).pipe(
-      tap((response) => {
-        const newCourse = { ...course, id: response.courseId }; 
-        const currentCourses = this.coursesBehaviorSubject.getValue();
-        this.coursesBehaviorSubject.next([...currentCourses, newCourse]); 
-      },
-      (error) => alert('Error:' + error.message))
+    return this.http.post<{ courseId: string }>(`https://${this.apiUrl}`, course).pipe(
+      tap(
+        (response) => {
+          const newCourse = { ...course, id: response.courseId };
+          const currentCourses = this.coursesBehaviorSubject.getValue();
+          this.coursesBehaviorSubject.next([...currentCourses, newCourse]);
+        },
+        (error) => alert('Error:' + error.message)
+      )
     );
   }
 
   updateCourse(id: string, course: Course): Observable<Course> {
-    const response = this.http.put<Course>(`${this.apiUrl}/${id}`, course);
-    response.subscribe(() => {
-      this.getAllCourses();
-    },(error) => alert('Error:' + error.message));
+    const response = this.http.put<Course>(`https://${this.apiUrl}/${id}`, course);
+    response.subscribe(
+      () => {
+        this.getAllCourses();
+      },
+      (error) => alert('Error:' + error.message)
+    );
     return response;
   }
 }

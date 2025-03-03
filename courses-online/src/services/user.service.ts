@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = 'http://localhost:3000/api/users';
+  private apiUrl = 'coursesserver-p3is.onrender.com/api/users';
   private currentUserSubject = new BehaviorSubject<User>(emptyUser); // Subject להחזיק את פרטי המשתמש
   public currentUser$: Observable<User> =
     this.currentUserSubject.asObservable(); // Observable שיאפשר להאזין לשינויים
@@ -21,20 +21,16 @@ export class UserService {
       this.userId = id!;
     });
     this.authService.isAuth$.subscribe((isAuth) => {
-     
       if (isAuth) {
         this.getUserById();
       } else {
         this.currentUserSubject.next(emptyUser);
       }
     });
-    
   }
 
   public getUserById() {
-    
-
-    this.http.get<User>(`${this.apiUrl}/${this.userId}`).subscribe((user) => {
+    this.http.get<User>(`https://${this.apiUrl}/${this.userId}`).subscribe((user) => {
       this.currentUserSubject.next(user);
     });
   }
