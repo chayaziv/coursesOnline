@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/api/auth'; // או ה־URL המתאים לשרת שלך
+  private apiUrl = 'https://coursesserver-p3is.onrender.com/api/auth'; // או ה־URL המתאים לשרת שלך
   private userIdSubject = new BehaviorSubject<string | null>(null);
   public userId$ = this.userIdSubject.asObservable();
   private isAuthSubject = new BehaviorSubject<boolean>(false);
