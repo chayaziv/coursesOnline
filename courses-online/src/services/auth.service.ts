@@ -19,10 +19,13 @@ export class AuthService {
   private userNameSubject = new BehaviorSubject<string>('Guest');
   public userName$ = this.userNameSubject.asObservable();
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {
+    console.log('auth service', this.apiUrl);
+  }
 
   // התחברות
   SignIn(user: SignInUser) {
+    console.log('auth service', this.apiUrl);
     const response = this.http.post<any>(`${this.apiUrl}/login`, { ...user });
     response.subscribe(
       (res) => {
@@ -44,6 +47,7 @@ export class AuthService {
   }
 
   SignUp(user: SignInUser) {
+    console.log('auth service', this.apiUrl);
     const response = this.http.post<any>(`${this.apiUrl}/register`, {
       ...user,
     });
