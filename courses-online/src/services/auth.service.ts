@@ -26,6 +26,7 @@ export class AuthService {
     const response = this.http.post<any>(`${this.apiUrl}/login`, { ...user });
     response.subscribe(
       (res) => {
+        console.log('Response:', res); // הוספת הדפסה
         if (res.token) {
           sessionStorage.setItem('authToken', res.token);
           console.log('Token:', res.token);
@@ -48,6 +49,7 @@ export class AuthService {
     });
     response.subscribe(
       (res) => {
+        console.log('Response:', res); // הוספת הדפסה
         if (res.token) {
           sessionStorage.setItem('authToken', res.token);
           console.log('Token:', res.token);
