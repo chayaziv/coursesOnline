@@ -50,8 +50,8 @@ export class CourseDetailsComponent implements OnInit {
           this.courseId = params.get('id') as string;
 
           return forkJoin({
-            course: this.coursesService.getCourseById(this.courseId), // קריאה לפרטי הקורס
-            lessons: this.lessonService.getLessonsForCourse(this.courseId), // קריאה לשיעורים
+            course: this.coursesService.getCourseById(this.courseId), 
+            lessons: this.lessonService.getLessonsForCourse(this.courseId), 
           });
         })
       )
@@ -71,7 +71,7 @@ export class CourseDetailsComponent implements OnInit {
   }
   DeleteLesson(id: string) {
     this.lessonService.deleteLesson(id, this.courseId).subscribe(() => {
-      console.log('Lesson deleted, fetching updated list...');
+     
       this.lessonService
         .getLessonsForCourse(this.courseId)
         .subscribe((lessons) => {

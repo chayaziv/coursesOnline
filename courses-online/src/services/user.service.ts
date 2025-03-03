@@ -21,18 +21,18 @@ export class UserService {
       this.userId = id!;
     });
     this.authService.isAuth$.subscribe((isAuth) => {
-      console.log('isAuth!!!!');
+     
       if (isAuth) {
         this.getUserById();
       } else {
         this.currentUserSubject.next(emptyUser);
       }
     });
-    console.log('in init', this.currentUser$);
+    
   }
 
   public getUserById() {
-    console.log('in getUserById', this.currentUser$);
+    
 
     this.http.get<User>(`${this.apiUrl}/${this.userId}`).subscribe((user) => {
       this.currentUserSubject.next(user);

@@ -12,25 +12,25 @@ export class LessonService {
   constructor(private http: HttpClient) {}
 
   getLessonsForCourse(id: string): Observable<Lesson[]> {
-    return this.http.get<Lesson[]>(`${this.baseUrl}/${id}/lessons`); // מבצע קריאה לשרת כדי לקבל את פרטי המשתמש
+    return this.http.get<Lesson[]>(`${this.baseUrl}/${id}/lessons`); 
   }
 
   deleteLesson(id: string, courseId: string): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/${courseId}/lessons/${id}`); // מבצע קריאה לשרת כדי למחוק את המשתמש
+    return this.http.delete<void>(`${this.baseUrl}/${courseId}/lessons/${id}`); 
   }
 
   addLesson(courseId: string, lesson: Lesson): Observable<Lesson> {
     return this.http.post<Lesson>(
       `${this.baseUrl}/${courseId}/lessons`,
       lesson
-    ); // מבצע קריאה לשרת כדי להוסיף משתמש חדש
+    ); 
   }
 
   updateLesson(id: string, lesson: Lesson): Observable<Lesson> {
-    console.log(lesson);
+    
     return this.http.put<Lesson>(
       `${this.baseUrl}/${lesson.courseId}/lessons/${id}`,
       lesson
-    ); // מבצע קריאה לשרת כדי לעדכן משתמש
+    ); 
   }
 }

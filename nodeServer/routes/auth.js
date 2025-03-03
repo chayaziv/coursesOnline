@@ -5,7 +5,7 @@ const User = require('../models/User');
 
 module.exports = (db) => {
   const router = express.Router();
-  const userModel = User(db); // יצירת המודל עם db
+  const userModel = User(db); 
 
   // Register
   router.post('/register', async (req, res) => {

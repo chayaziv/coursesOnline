@@ -48,12 +48,12 @@ export class CourseComponent {
 
   Enroll() {
     this.myCoursesService.EnrollCourse(this.course.id!);
-    console.log('enrolled');
+  
     this.router.navigate(['/mycourses']);
   }
   UnEnroll() {
     this.myCoursesService.UnEnrollCourse(this.course.id!);
-    console.log('unenrolled');
+   
     this.router.navigate(['/mycourses']);
   }
   isEnrolled(): Observable<boolean> {

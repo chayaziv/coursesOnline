@@ -16,7 +16,7 @@ export class CoursesService {
   constructor(private http: HttpClient) {}
 
   getAllCourses() {
-    console.log('in getAllCourses');
+
     const response = this.http.get<Course[]>(this.apiUrl);
     response.subscribe(
       (courses) => {
@@ -40,10 +40,9 @@ export class CoursesService {
   addCourse(course: Course) {
     return this.http.post<{ courseId: string }>(this.apiUrl, course).pipe(
       tap((response) => {
-        // אם השרת מחזיר רק את ה-ID, נוסיף את ה-ID לקורס החדש
-        const newCourse = { ...course, id: response.courseId }; // יצירת אובייקט קורס חדש עם ה-ID שהשרת החזיר
+        const newCourse = { ...course, id: response.courseId }; 
         const currentCourses = this.coursesBehaviorSubject.getValue();
-        this.coursesBehaviorSubject.next([...currentCourses, newCourse]); // עדכון ה-BehaviorSubject
+        this.coursesBehaviorSubject.next([...currentCourses, newCourse]); 
       },
       (error) => alert('Error:' + error.message))
     );

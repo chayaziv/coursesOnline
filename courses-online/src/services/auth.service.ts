@@ -20,19 +20,18 @@ export class AuthService {
   public userName$ = this.userNameSubject.asObservable();
 
   constructor(private http: HttpClient, private router: Router) {
-    console.log('auth service', this.apiUrl);
+   
   }
 
-  // התחברות
   SignIn(user: SignInUser) {
-    console.log('auth service', this.apiUrl);
+    
     const response = this.http.post<any>(`${this.apiUrl}/login`, { ...user });
     response.subscribe(
       (res) => {
-        console.log('Response:', res); // הוספת הדפסה
+   
         if (res.token) {
           sessionStorage.setItem('authToken', res.token);
-          console.log('Token:', res.token);
+          
         }
         this.userIdSubject.next(res.userId);
         this.roleSubject.next(res.role);
@@ -42,7 +41,7 @@ export class AuthService {
       },
       (error) => {
         alert('Error:' + error.message);
-        console.error('Error:', error.message);
+        
       }
     );
   }
@@ -53,10 +52,9 @@ export class AuthService {
     });
     response.subscribe(
       (res) => {
-        console.log('Response:', res); // הוספת הדפסה
         if (res.token) {
           sessionStorage.setItem('authToken', res.token);
-          console.log('Token:', res.token);
+          
         }
         this.userIdSubject.next(res.userId);
         this.roleSubject.next(res.role);
@@ -66,21 +64,19 @@ export class AuthService {
       },
       (error) => {
         alert('Error:' + error.message);
-        console.error('Error:', error.message);
+        
       }
     );
   }
 
-  // פונקציה למחוק את ה־token (logout)
   logout() {
-    console.log('logout');
+    
     sessionStorage.removeItem('authToken');
     this.userIdSubject.next(null);
     this.isAuthSubject.next(false);
     this.roleSubject.next('');
     this.userNameSubject.next('Guest');
   }
-  // פונקציה לקבלת ה־token
   getToken(): string | null {
     return sessionStorage.getItem('authToken');
   }

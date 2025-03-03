@@ -57,6 +57,5 @@ export class SignInComponent {
     const user: SignInUser = this.signInForm?.value as SignInUser;
 
     this.authService.SignIn(user);
-    // this.router.navigate(['/home'])
   }
 }

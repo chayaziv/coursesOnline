@@ -20,13 +20,13 @@ export class MyCoursesService {
   constructor(private http: HttpClient, public authService: AuthService) {
     this.authService.userId$.subscribe((id) => {
       this.studentId = id!;
-      console.log('studentId in MyCoursesService', this.studentId);
+    
       this.getMyCourses();
     });
   }
 
   getMyCourses() {
-    console.log('in getMyCourses');
+
     if (!this.studentId) return;
     const response = this.http.get<Course[]>(
       `${this.apiUrl}/student/${this.studentId}`
@@ -39,7 +39,7 @@ export class MyCoursesService {
     );
   }
   EnrollCourse(courseId: string) {
-    // console.log('in EnrollCourse')
+   
     const response = this.http.post<void>(`${this.apiUrl}/${courseId}/enroll`, {
       userId: this.studentId,
     });
@@ -48,7 +48,7 @@ export class MyCoursesService {
     });
   }
   UnEnrollCourse(courseId: string) {
-    // console.log('in UnEnrollCourse')
+   
     const response = this.http.delete<void>(
       `${this.apiUrl}/${courseId}/unenroll`,
       { body: { userId: this.studentId } }
@@ -61,7 +61,6 @@ export class MyCoursesService {
     const res = this.myCourses$.pipe(
       map((courses) => courses.some((course) => course.id === courseId))
     );
-    console.log('isEnrolled', res);
     return res;
   }
 }

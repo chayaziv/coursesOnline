@@ -4,7 +4,6 @@ import { inject } from '@angular/core';
 
 export const adminGuard: CanActivateFn = (route, state) => {
   const userService = inject(UserService);
-  // return userService.currentUser.role === 'admin'
 
   return true;
 };

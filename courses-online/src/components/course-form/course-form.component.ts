@@ -37,13 +37,11 @@ export class CourseFormComponent {
   ) {}
 
   ngOnInit(): void {
-    // יצירת הטופס
     this.courseForm = this.fb.group({
       title: [this.course.title, Validators.required],
       description: [this.course.description, Validators.required],
     });
 
-    // אם מדובר בעריכה, נטען את השיעור הקיים
     if (this.isEdit) {
       this.courseForm.patchValue({
         title: this.course.title,
@@ -77,7 +75,6 @@ export class CourseFormComponent {
   }
 
   onCancel() {
-    // כאן נוכל להוסיף לוגיקה לסגירת הטופס
 
     this.closeForm.emit();
   }

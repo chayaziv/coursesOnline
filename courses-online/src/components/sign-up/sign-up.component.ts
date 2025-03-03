@@ -57,7 +57,6 @@ export class SignUpComponent {
   }
   SaveUser() {
     const user: SignUpUser = this.signUpForm?.value as SignUpUser;
-    console.log(user);
     this.authService.SignUp(user);
   }
 }

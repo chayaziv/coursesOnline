@@ -1,14 +1,4 @@
-// import { Component } from '@angular/core'
 
-// @Component({
-//   selector: 'app-form-lesson',
-//   imports: [],
-//   templateUrl: './form-lesson.component.html',
-//   styleUrl: './form-lesson.component.css'
-// })
-// export class FormLessonComponent {
-
-// }
 
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
@@ -48,13 +38,11 @@ export class LessonFormComponent implements OnInit {
   constructor(private fb: FormBuilder, private lessonService: LessonService) {}
 
   ngOnInit(): void {
-    // יצירת הטופס
     this.lessonForm = this.fb.group({
       title: [this.lesson.title, Validators.required],
       content: [this.lesson.content, Validators.required],
     });
 
-    // אם מדובר בעריכה, נטען את השיעור הקיים
     if (this.isEdit) {
       this.lessonForm.patchValue({
         title: this.lesson.title,
@@ -73,14 +61,14 @@ export class LessonFormComponent implements OnInit {
             courseId: this.courseId,
           })
           .subscribe(() => {
-            console.log('Lesson updated');
+           
             this.onCancel();
           });
       } else {
         this.lessonService
           .addLesson(this.courseId, formValues)
           .subscribe(() => {
-            console.log('Lesson added');
+            
             this.onCancel();
           });
       }
@@ -88,7 +76,6 @@ export class LessonFormComponent implements OnInit {
   }
 
   onCancel() {
-    // כאן נוכל להוסיף לוגיקה לסגירת הטופס
 
     this.closeForm.emit();
   }

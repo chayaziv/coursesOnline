@@ -70,7 +70,7 @@ export class AllCoursesComponent {
   }
   Enroll(courseId: string) {
     this.myCoursesService.EnrollCourse(courseId);
-    console.log('enrolled');
+   
     this.router.navigate(['/mycourses']);
   }
   isEnrolled(courseId: string): Observable<boolean> {
