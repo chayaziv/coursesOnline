@@ -16,7 +16,9 @@ export class UserService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  private getUserById(userId: string): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}/${userId}`); // מבצע קריאה לשרת כדי לקבל את פרטי המשתמש
+  private getUserById(userId: string) {
+    this.http.get<User>(`${this.apiUrl}/${userId}`).subscribe((user) => {
+      this.currentUserSubject.next(user);
+    });
   }
 }

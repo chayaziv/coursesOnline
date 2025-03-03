@@ -8,6 +8,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AuthService } from '../../services/auth.service';
 import { ButtonStyleDirective } from '../../directives/button-style.directive';
+import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-home',
   imports: [
@@ -16,17 +17,18 @@ import { ButtonStyleDirective } from '../../directives/button-style.directive';
     MatIconModule,
     MatToolbarModule,
     MatGridListModule,
-    MatDialogModule,ButtonStyleDirective
+    MatDialogModule,
+    ButtonStyleDirective,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
   userName: string = 'Guest';
-  constructor(public authService: AuthService) {}
+  constructor(public userService: UserService) {}
   ngOnInit(): void {
-    this.authService.userName$.subscribe((userName) => {
-      this.userName = userName;
+    this.userService.currentUser$.subscribe((user) => {
+      this.userName = user.name;
     });
   }
 }
