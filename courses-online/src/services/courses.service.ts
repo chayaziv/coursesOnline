@@ -18,16 +18,19 @@ export class CoursesService {
   getAllCourses() {
     console.log('in getAllCourses');
     const response = this.http.get<Course[]>(this.apiUrl);
-    response.subscribe((courses) => {
-      this.coursesBehaviorSubject.next(courses);
-    });
+    response.subscribe(
+      (courses) => {
+        this.coursesBehaviorSubject.next(courses);
+      },
+      (error) => alert('Error:' + error.message)
+    );
   }
 
   deleteCourse(id: string): Observable<void> {
     const response = this.http.delete<void>(`${this.apiUrl}/${id}`);
     response.subscribe(() => {
       this.getAllCourses();
-    });
+    },(error) => alert('Error:' + error.message));
     return response;
   }
 
@@ -41,7 +44,8 @@ export class CoursesService {
         const newCourse = { ...course, id: response.courseId }; // יצירת אובייקט קורס חדש עם ה-ID שהשרת החזיר
         const currentCourses = this.coursesBehaviorSubject.getValue();
         this.coursesBehaviorSubject.next([...currentCourses, newCourse]); // עדכון ה-BehaviorSubject
-      })
+      },
+      (error) => alert('Error:' + error.message))
     );
   }
 
@@ -49,7 +53,7 @@ export class CoursesService {
     const response = this.http.put<Course>(`${this.apiUrl}/${id}`, course);
     response.subscribe(() => {
       this.getAllCourses();
-    });
+    },(error) => alert('Error:' + error.message));
     return response;
   }
 }

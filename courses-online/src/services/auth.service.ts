@@ -41,6 +41,7 @@ export class AuthService {
         this.router.navigate(['/home']);
       },
       (error) => {
+        alert('Error:' + error.message);
         console.error('Error:', error.message);
       }
     );
@@ -64,6 +65,7 @@ export class AuthService {
         this.router.navigate(['/home']);
       },
       (error) => {
+        alert('Error:' + error.message);
         console.error('Error:', error.message);
       }
     );

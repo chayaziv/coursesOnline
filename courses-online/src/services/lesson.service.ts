@@ -7,23 +7,21 @@ import { Lesson } from '../models/lesson.model';
   providedIn: 'root',
 })
 export class LessonService {
+  baseUrl: string = 'http://localhost:3000/api/courses';
+
   constructor(private http: HttpClient) {}
 
   getLessonsForCourse(id: string): Observable<Lesson[]> {
-    return this.http.get<Lesson[]>(
-      `http://localhost:3000/api/courses/${id}/lessons`
-    ); // מבצע קריאה לשרת כדי לקבל את פרטי המשתמש
+    return this.http.get<Lesson[]>(`${this.baseUrl}/${id}/lessons`); // מבצע קריאה לשרת כדי לקבל את פרטי המשתמש
   }
 
   deleteLesson(id: string, courseId: string): Observable<void> {
-    return this.http.delete<void>(
-      `http://localhost:3000/api/courses/${courseId}/lessons/${id}`
-    ); // מבצע קריאה לשרת כדי למחוק את המשתמש
+    return this.http.delete<void>(`${this.baseUrl}/${courseId}/lessons/${id}`); // מבצע קריאה לשרת כדי למחוק את המשתמש
   }
 
   addLesson(courseId: string, lesson: Lesson): Observable<Lesson> {
     return this.http.post<Lesson>(
-      `http://localhost:3000/api/courses/${courseId}/lessons`,
+      `${this.baseUrl}/${courseId}/lessons`,
       lesson
     ); // מבצע קריאה לשרת כדי להוסיף משתמש חדש
   }
@@ -31,7 +29,7 @@ export class LessonService {
   updateLesson(id: string, lesson: Lesson): Observable<Lesson> {
     console.log(lesson);
     return this.http.put<Lesson>(
-      `http://localhost:3000/api/courses/${lesson.courseId}/lessons/${id}`,
+      `${this.baseUrl}/${lesson.courseId}/lessons/${id}`,
       lesson
     ); // מבצע קריאה לשרת כדי לעדכן משתמש
   }
