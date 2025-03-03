@@ -1,3 +1,4 @@
+//-----------teacher
 const express = require("express");
 const bodyParser = require("body-parser");
 const sqlite3 = require("sqlite3").verbose();
@@ -8,7 +9,7 @@ const courseRoutes = require("./routes/courses");
 const lessonRoutes = require("./routes/lessons");
 
 const app = express();
-const db = new sqlite3.Database("./database-file.db");
+const db = new sqlite3.Database("./database.sqlite");
 
 // Middleware
 app.use(bodyParser.json());

@@ -47,7 +47,6 @@ export class AuthService {
   }
 
   SignUp(user: SignInUser) {
-    console.log('auth service', this.apiUrl);
     const response = this.http.post<any>(`${this.apiUrl}/register`, {
       ...user,
     });
