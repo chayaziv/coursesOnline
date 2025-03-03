@@ -1,4 +1,3 @@
-
 <div class="course-details">
   <mat-card class="course-card">
     <mat-card-header>
@@ -8,7 +7,11 @@
       <p class="course-description">{{ course?.description }}</p>
     </mat-card-content>
     <mat-card-actions *ngIf="role === 'admin' || role === 'teacher'">
-      <button mat-raised-button [appButtonStyle]="'primary'"  (click)="AddLesson()">
+      <button
+        mat-raised-button
+        [appButtonStyle]="'primary'"
+        (click)="AddLesson()"
+      >
         Add Lesson
       </button>
     </mat-card-actions>
@@ -16,7 +19,6 @@
 </div>
 <h2>Lessons</h2>
 <div class="lessons-container">
- 
   @for(l of lessons; track l.id) {
   <div class="lesson-card">
     <mat-card>
@@ -28,22 +30,25 @@
         <p>{{ l.content }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <ng-container *ngIf="role === 'admin' || role === 'teacher'">
+        @if(role === 'admin' || role === 'teacher'){
+        <ng-container>
           <button mat-icon-button (click)="EditLesson(l)">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button  (click)="DeleteLesson(l.id)">
+          <button mat-icon-button (click)="DeleteLesson(l.id)">
             <mat-icon>delete</mat-icon>
           </button>
         </ng-container>
-        <ng-container *ngIf="role === 'student'">
-          <button mat-button[appButtonStyle]="'primary'" >
+        } @else if(role === 'student'){
+        <ng-container>
+          <button mat-button color="primary">
             <mat-icon>play_circle</mat-icon> Start Lesson
           </button>
           <button mat-icon-button color="accent">
             <mat-icon>favorite</mat-icon>
           </button>
         </ng-container>
+        }
       </mat-card-actions>
     </mat-card>
   </div>
