@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class MyCoursesService {
-  private apiUrl = 'https://coursesserver-p3is.onrender.com/api/courses';
+  private apiUrl = 'http://localhost:3000/api/courses';
 
   private myCoursesBehaviorSubject = new BehaviorSubject<Course[]>([]);
   public myCourses$: Observable<Course[]> =
