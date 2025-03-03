@@ -10,6 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
+import { ButtonStyleDirective } from '../../directives/button-style.directive';
 
 @Component({
   selector: 'app-menue',
@@ -20,7 +21,7 @@ import { AuthService } from '../../services/auth.service';
     MatMenuModule,
     MatSidenavModule,
     MatListModule,
-    RouterLink,
+    RouterLink,ButtonStyleDirective
   ],
   templateUrl: './menue.component.html',
   styleUrl: './menue.component.css',

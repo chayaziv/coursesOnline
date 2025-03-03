@@ -1,5 +1,3 @@
-
-
 <mat-card class="course-card">
   <mat-card-header>
     <mat-icon>school</mat-icon>
@@ -9,30 +7,37 @@
   <mat-card-actions>
     <div>
       @if (role == 'admin'|| role == 'teacher') {
-        <button mat-raised-button [appButtonStyle]="'warn'" (click)="Delete()">
-          <mat-icon>delete</mat-icon>
-        </button>
-        <button mat-raised-button [appButtonStyle]="'accent'" (click)="Edit()">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-raised-button [appButtonStyle]="'primary'" (click)="View()" class="course-icon">
-          <mat-icon>visibility</mat-icon>
-        </button>
-      } 
-      @else if (role == 'student' && !isMyCourse) {
-        <button mat-raised-button [appButtonStyle]="'primary'" (click)="View()" class="course-icon">
-          <mat-icon>visibility</mat-icon>
-        </button>
-        @if (!(isEnrolled() | async)) {
-          <button mat-raised-button [appButtonStyle]="'primary'" (click)="Enroll()">
-            Enroll
-          </button>
-        }
-      } 
-      @else if (role == 'student' && isMyCourse) {
-        <button mat-raised-button [appButtonStyle]="'warn'" (click)="UnEnroll()">
-          UnEnroll
-        </button>
+      <button mat-raised-button [appButtonStyle]="'warn'" (click)="Delete()">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-raised-button color="'accent'" (click)="Edit()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button
+        mat-raised-button
+        color="'primary'"
+        (click)="View()"
+        class="course-icon"
+      >
+        <mat-icon>visibility</mat-icon>
+      </button>
+      } @else if (role == 'student' && !isMyCourse) {
+      <button
+        mat-raised-button
+        color="'primary'"
+        (click)="View()"
+        class="course-icon"
+      >
+        <mat-icon>visibility</mat-icon>
+      </button>
+      @if (!(isEnrolled() | async)) {
+      <button mat-raised-button color="'primary'" (click)="Enroll()">
+        Enroll
+      </button>
+      } } @else if (role == 'student' && isMyCourse) {
+      <button mat-raised-button [appButtonStyle]="'warn'" (click)="UnEnroll()">
+        UnEnroll
+      </button>
       }
     </div>
   </mat-card-actions>

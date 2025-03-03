@@ -3,11 +3,10 @@
   <section class="intro">
     <mat-card class="intro-card">
       <mat-card-content>
-        @if(userName!=="Guest") {
-        <h1> {{ userName }},</h1>
-        } 
+        @if(userName!=="") {
+        <h1>{{ userName }},</h1>
+        }
         <h2>Welcome to Courses Online</h2>
-       
 
         <p>
           At Courses Online, we provide a platform for learning various skills
@@ -82,7 +81,7 @@
             Learn to build modern websites with HTML, CSS, and JavaScript. No
             prior experience required!
           </p>
-          <button mat-raised-button [appButtonStyle]="'primary'" >Enroll Now</button>
+          <button mat-raised-button color="'primary'">Enroll Now</button>
         </mat-card-content>
       </mat-card>
 
@@ -95,7 +94,7 @@
             Dive into data analysis, machine learning, and artificial
             intelligence with this beginner-to-advanced course.
           </p>
-          <button mat-raised-button [appButtonStyle]="'primary'" >Enroll Now</button>
+          <button mat-raised-button color="'primary'">Enroll Now</button>
         </mat-card-content>
       </mat-card>
 
@@ -108,7 +107,7 @@
             Learn the fundamentals of digital marketing and how to grow a
             business online.
           </p>
-          <button mat-raised-button [appButtonStyle]="'primary'" >Enroll Now</button>
+          <button mat-raised-button color="'primary'">Enroll Now</button>
         </mat-card-content>
       </mat-card>
     </div>

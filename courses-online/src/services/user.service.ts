@@ -14,10 +14,27 @@ export class UserService {
   public currentUser$: Observable<User> =
     this.currentUserSubject.asObservable(); // Observable שיאפשר להאזין לשינויים
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  private userId: string = '';
 
-  private getUserById(userId: string) {
-    this.http.get<User>(`${this.apiUrl}/${userId}`).subscribe((user) => {
+  constructor(private http: HttpClient, private authService: AuthService) {
+    this.authService.userId$.subscribe((id) => {
+      this.userId = id!;
+    });
+    this.authService.isAuth$.subscribe((isAuth) => {
+      console.log('isAuth!!!!');
+      if (isAuth) {
+        this.getUserById();
+      } else {
+        this.currentUserSubject.next(emptyUser);
+      }
+    });
+    console.log('in init', this.currentUser$);
+  }
+
+  public getUserById() {
+    console.log('in getUserById', this.currentUser$);
+
+    this.http.get<User>(`${this.apiUrl}/${this.userId}`).subscribe((user) => {
       this.currentUserSubject.next(user);
     });
   }

@@ -25,10 +25,14 @@ import { UserService } from '../../services/user.service';
 })
 export class HomeComponent implements OnInit {
   userName: string = 'Guest';
-  constructor(public userService: UserService) {}
+  constructor(public userService: UserService) {
+    console.log('in ctor home', this.userService.currentUser$);
+  }
   ngOnInit(): void {
     this.userService.currentUser$.subscribe((user) => {
       this.userName = user.name;
+      console.log('in init home', user.name);
     });
+    //  this.userService.getUserById();
   }
 }
