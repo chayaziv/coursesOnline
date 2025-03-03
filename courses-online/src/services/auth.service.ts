@@ -7,8 +7,10 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
+
+//https://coursesserver-p3is.onrender.com
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/api/auth'; // או ה־URL המתאים לשרת שלך
+  private apiUrl = 'coursesserver-p3is.onrender.com/api/auth'; // או ה־URL המתאים לשרת שלך
   private userIdSubject = new BehaviorSubject<string | null>(null);
   public userId$ = this.userIdSubject.asObservable();
   private isAuthSubject = new BehaviorSubject<boolean>(false);
@@ -25,7 +27,7 @@ export class AuthService {
 
   SignIn(user: SignInUser) {
     
-    const response = this.http.post<any>(`${this.apiUrl}/login`, { ...user });
+    const response = this.http.post<any>(`https://${this.apiUrl}/login`, { ...user });
     response.subscribe(
       (res) => {
    
@@ -47,7 +49,7 @@ export class AuthService {
   }
 
   SignUp(user: SignInUser) {
-    const response = this.http.post<any>(`${this.apiUrl}/register`, {
+    const response = this.http.post<any>(`https://${this.apiUrl}/register`, {
       ...user,
     });
     response.subscribe(
